@@ -676,7 +676,7 @@ bool CalibrationManager::open_buffer_file_for_writing_() {
   // Close any existing handle before reopening
   close_buffer_file_();
   
-  buffer_file_ = safe_fopen_wrapper(buffer_path_, "wb");
+  buffer_file_ = fopen(buffer_path_, "wb");
   if (!buffer_file_) {
     ESP_LOGE(TAG, "Failed to open %s for writing", buffer_path_);
     return false;
